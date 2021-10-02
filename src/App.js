@@ -1,20 +1,26 @@
-import { HomeView } from './components/HomeView/HomeView'
+import { ItemListContainer } from './components/ItemListContainer/ItemListContainer';
 import { NavBar } from './components/NavBar/NavBar';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Clock } from './ejemplos/Clock/Clock'
+import { useEffect, useState } from 'react';
 
+function App() {  
 
-function App() {
+  const [clock, setClock] = useState(true)
 
-  const titulo = "Hola mundo"
+  useEffect(()=>{
 
+    setTimeout(()=> {
+      setClock(!clock)
+    }, 3000)
+
+  }, [clock] )
 
   return (
     <>
         <NavBar logo="Proyecto Profe"/>
-
-        {/* <ItemListContainer greeting="algun saludo"/> */}
-        {/* <HomeView titulo={titulo} contenido="Lorem ipsum"/>
-        <HomeView titulo="Chau mundo" contenido="Otro texto" otraProp="otra propiedad"/> */}
-
+        <ItemListContainer greeting={"Hola mundo"}/>
+        { clock && <Clock /> }
     </>
   );
 }

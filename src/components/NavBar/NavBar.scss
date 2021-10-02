@@ -1,0 +1,31 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: blueviolet;
+    padding: 12px 10%;
+
+    h1 {
+        font-size: 36px;
+        font-weight: 700;
+        color: white;
+    }
+
+    div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        nav {
+            width: 50%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .widget {
+            color: white;
+            font-size: 30px;
+        }
+    }
+}
