@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { pedirProductos } from '../../helpers/pedirProductos'
 import { ItemList } from './ItemList'
 
+// query params
+// const URL = 'https://www.google.com/search?q=coderhouse&limit=10'
+
 
 export const ItemListContainer = () => {
 
