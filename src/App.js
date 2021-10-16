@@ -8,6 +8,7 @@ import {
   Switch,
   Redirect
 } from 'react-router-dom'
+import { Form } from './ejemplos/Form/Form';
 
 
 function App() {  
@@ -18,6 +19,8 @@ function App() {
 
         <NavBar logo="Proyecto Profe"/>
         
+        <Form/>
+
         <Switch>
           <Route exact path="/">
               <ItemListContainer />
