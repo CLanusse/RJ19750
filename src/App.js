@@ -11,13 +11,16 @@ import {
 import { CartProvider } from './context/CartContext';
 import { CartScreen } from './components/CartScreen/CartScreen';
 import { UIProvider } from './context/UIContext';
-
+import { UserAuthContext } from './context/UserAuthContext';
+import { useContext } from 'react';
+import { UserAuthenticate } from './components/UserAuthenticate/UserAuthenticate';
 
 
 
 
 function App() {  
 
+  const {isAuthenticated} = useContext(UserAuthContext);
 
   return (
     <>
@@ -28,6 +31,9 @@ function App() {
             <NavBar logo="Proyecto Profe"/>
 
             <Switch>
+            { isAuthenticated 
+              ?
+              <>
               <Route exact path="/">
                   <ItemListContainer />
               </Route>
@@ -54,6 +60,10 @@ function App() {
               {/* <Route path="*">
                   <h2>404... no encontrado</h2>
               </Route> */}
+              </>
+              :
+                <UserAuthenticate/>
+              }
             </Switch>
           </BrowserRouter>
 
