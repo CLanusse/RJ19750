@@ -34,7 +34,7 @@ export const ItemListContainer = () => {
                 setLoading(false)
             })
 
-    }, [categoryId])
+    }, [categoryId, setLoading])
 
     // useEffect(async ()=> {
     //    // mock llamado a la API
