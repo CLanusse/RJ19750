@@ -14,7 +14,7 @@ export const stock = [
         name: "Producto 2",
         description: "Lorem ipsum",
         price: 2500,
-        img: "https://via.placeholder.com/220",
+        img: "https://firebasestorage.googleapis.com/v0/b/coder-rj-19750.appspot.com/o/remera.jpg?alt=media&token=c2e7bb70-5a64-4109-abee-87d29278ac3e",
         category: 'remeras',
         stock: 20
     },
