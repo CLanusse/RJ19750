@@ -14,6 +14,8 @@ import { UIProvider } from './context/UIContext';
 import { UserAuthContext } from './context/UserAuthContext';
 import { useContext } from 'react';
 import { UserAuthenticate } from './components/UserAuthenticate/UserAuthenticate';
+import { Padre } from './ejemplos/EjMemo/Padre';
+
 
 
 

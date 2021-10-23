@@ -33,6 +33,8 @@ export const Form = () => {
                     value={values.nombre}
                     onChange={handleInputChange}
                     />
+                {values.nombre.length === 0 && <small>Este campo es obligatorio</small>}
+
                 <input
                     className="form-control my-2"
                     type="text"
@@ -41,6 +43,8 @@ export const Form = () => {
                     value={values.apellido}
                     onChange={handleInputChange}
                     />
+                {values.apellido.length === 0 && <small>Este campo es obligatorio</small>}
+
                 <input
                     className="form-control my-2"
                     type="email"
@@ -49,6 +53,7 @@ export const Form = () => {
                     value={values.email}
                     onChange={handleInputChange}
                 />
+                {values.email.length === 0 && <small>Este campo es obligatorio</small>}
 
                 <button className="btn btn-primary" type="submit">Enviar</button>
             </form>

@@ -5,9 +5,6 @@ import { UserAuthContext } from '../../context/UserAuthContext'
 import { CartWidget } from './CartWidget'
 import './NavBar.scss'
 
-
-
-
 export const NavBar = ( {logo} ) => {
 
 

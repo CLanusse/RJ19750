@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { BsFillTrashFill } from 'react-icons/bs'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import { CartContext } from '../../context/CartContext'
 
 export const CartScreen = () => {
@@ -12,12 +12,13 @@ export const CartScreen = () => {
         <div className="container my-5">
 
             {
-                carrito.length === 0
+                carrito.length === 0 // true - false
                 ? <>
+                    {/* <Redirect to="/"/> */}
                     <h2>No hay productos agregados</h2>
                     <Link to="/" className="btn btn-success">Ir a comprar</Link>
                  </>
-                :
+                : 
                     <>
                         <h2>Resumen de compra</h2>
                         <hr/>

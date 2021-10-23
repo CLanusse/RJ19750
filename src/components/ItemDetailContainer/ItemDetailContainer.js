@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import { UIContext } from '../../context/UIContext'
 import { pedirProductos } from '../../helpers/pedirProductos'
+import { Loader } from '../Loader/Loader'
 import { ItemDetail } from './ItemDetail'
 
 export const ItemDetailContainer = () => {
@@ -28,7 +29,8 @@ export const ItemDetailContainer = () => {
     return (
         <div>
             {
-                loading ? <h2>Cargando...</h2>
+                loading 
+                ? <Loader/>
                 : <ItemDetail {...item}/>
             }
         </div>

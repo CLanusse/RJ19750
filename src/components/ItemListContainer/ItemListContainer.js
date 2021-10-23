@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import { UIContext } from '../../context/UIContext'
 import { pedirProductos } from '../../helpers/pedirProductos'
+import { Loader } from '../Loader/Loader'
 import { ItemList } from './ItemList'
 
 // query params
@@ -42,17 +43,39 @@ export const ItemListContainer = () => {
     //     console.log(res)
     // }, [])
 
-
+    // render con operador ternario
     return (
         <section className="container my-5">
             {
                 loading 
-                    ? <h2>Cargando...</h2>
+                    ? <Loader/>
                     : <ItemList productos={items}/>
             }
             
         </section>
     )
+    
+    // render con early return
+    // if (loading) {
+    //     return <h2>Cargando...</h2>
+    // }
+
+    // return (
+    //     <section className="cointainer my-5">
+    //         <ItemList productos={items}/>
+    //     </section>
+    // )
+
+    // render inline con fragment
+
+    // return (
+    //     <section className="cointainer my-5">
+    //         {loading && <h2>Cargando...</h2>}
+    //         {!loading && <ItemList productos={items}/>}
+    //     </section>
+    // )
+
+
 }
 
 
