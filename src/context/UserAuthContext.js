@@ -1,17 +1,61 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useState, useEffect } from 'react';
+import { getAuth, provider } from '../firebase/config';
 
 export const UserAuthContext = createContext();
 
-export const UserAuthProvider = ({children}) => {
+export const UserAuthProvider = ({ children }) => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
 
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const auth = getAuth();
 
-    return (
-        <UserAuthContext.Provider value={{
-            isAuthenticated,
-            setIsAuthenticated
-        }}>
-            {children}
-        </UserAuthContext.Provider>
-    )
-}
+  const login = (email, password) => {
+    return auth.signInWithEmailAndPassword(email, password);
+  };
+
+  const signup = (email, password) => {
+    return auth.createUserWithEmailAndPassword(email, password);
+  };
+
+  const logout = () => {
+    return auth.signOut();
+  };
+
+  const signInWithGoogle = () => {
+    return auth.signInWithPopup(provider);
+  };
+
+  // detecta currentUser y autentifica
+  useEffect(() => {
+    if (currentUser) {
+      setIsAuthenticated(true);
+    } else {
+      setIsAuthenticated(false);
+    }
+  }, [currentUser]);
+
+  // detecta si hay o no currentUser
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      setCurrentUser(user);
+    });
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  const value = {
+    isAuthenticated,
+    currentUser,
+    login,
+    logout,
+    signup,
+    signInWithGoogle,
+  };
+
+  return (
+    <UserAuthContext.Provider value={value}>
+      {children}
+    </UserAuthContext.Provider>
+  );
+};

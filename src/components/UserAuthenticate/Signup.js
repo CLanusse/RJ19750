@@ -1,4 +1,44 @@
-<div
+import { useRef, useContext } from 'react';
+import { UserAuthContext } from '../../context/UserAuthContext';
+import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
+import Animation from '../animacion/Animacion';
+import Swal from 'sweetalert2';
+
+const Signup = () => {
+  // Tomo referencia de los campos del input con el hook useRef
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const confPasswordRef = useRef();
+
+  const { signup } = useContext(UserAuthContext);
+
+  const { push } = useHistory();
+
+  // Función para loguearse
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    signup(
+      emailRef.current.value,
+      passwordRef.current.value,
+      confPasswordRef.current.value,
+    )
+      .then((res) => {
+        push('/');
+        Swal.fire('Good job!', 'You clicked the button!', 'success');
+      })
+      .catch((err) =>
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: err.message,
+        }),
+      );
+  };
+
+  return (
+    <div
       className='container d-flex align-items-center justify-content-center'
       style={{ minHeight: '100vh' }}
     >
@@ -49,7 +89,11 @@
           </small>
         </div>
       </div>
-      {/* <div className='col '>
-          <Animation />
-        </div> */}
+      <div className='col '>
+        <Animation />
+      </div>
     </div>
+  );
+};
+
+export default Signup;
