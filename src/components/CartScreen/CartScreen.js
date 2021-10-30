@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { BsFillTrashFill } from 'react-icons/bs'
-import { Link, Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { CartContext } from '../../context/CartContext'
 
 export const CartScreen = () => {
@@ -24,7 +24,7 @@ export const CartScreen = () => {
                         <hr/>
 
                         {
-                            carrito.map( (prod) => (
+                            carrito.map( (prod) => ( 
                                 <div>
                                     <h4>{prod.name}</h4>
                                     <p>Cantidad: {prod.cantidad}</p>
