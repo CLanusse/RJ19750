@@ -44,6 +44,10 @@ export const CartScreen = () => {
                         >
                             Vaciar carrito
                         </button>
+
+                        <Link to="/checkout" className="btn btn-success mx-3">
+                            Terminar mi compra
+                        </Link>
                     </>
             } 
 
