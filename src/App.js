@@ -10,6 +10,7 @@ import { UserAuthContext } from './context/UserAuthContext';
 import { useContext } from 'react';
 import { UserAuthenticate } from './components/UserAuthenticate/UserAuthenticate';
 import Signup from './components/UserAuthenticate/Signup';
+import { Checkout } from './components/Checkout/Checkout';
 
 // Estilos de bootwatch
 import 'bootswatch/dist/minty/bootstrap.min.css';
@@ -60,6 +61,26 @@ function App() {
                     <Redirect to='/' />
                   </Route>
                   {/* <Route path="*">
+              <Route exact path="/detail/:itemId">
+                  <ItemDetailContainer />
+              </Route>
+
+              <Route exact path="/contacto">
+                  <h1>Contacto</h1>
+              </Route>
+
+              <Route exact path="/cart">
+                <CartScreen/>
+              </Route>
+
+              <Route exact path="/checkout">
+                <Checkout/>
+              </Route>
+
+              <Route path="*">
+                  <Redirect to="/"/>
+              </Route>
+              {/* <Route path="*">
                   <h2>404... no encontrado</h2>
               </Route> */}
                 </>
